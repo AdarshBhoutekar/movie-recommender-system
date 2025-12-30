@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import requests
 import pandas as pd
-
+import os
 # Load files
 movies = pickle.load(open('movies.pkl', 'rb'))
 # similarity = pickle.load(open('similarity.pkl', 'rb'))
@@ -18,11 +18,9 @@ def compute_similarity(movies):
 
 similarity = compute_similarity(movies)
 
-
-# def fetch_poster(movie_id):
 import requests
 
-
+API_KEY = os.getenv("TMDB_API_KEY")
 # def fetch_poster(movie_id):
 #     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=9fc685faba38608c82a9b43bac398993&language=en-US"
 #     response = requests.get(url)
@@ -32,7 +30,7 @@ import requests
 
 def fetch_poster(movie_id):
     try:
-        url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=9fc685faba38608c82a9b43bac398993&language=en-US"
+        url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={API_KEY}&language=en-US"
         response = requests.get(url, timeout=5)   # timeout added
         data = response.json()
 
@@ -90,3 +88,4 @@ if st.button("Recommend"):
         with cols[i]:
             st.text(names[i])
             st.image(posters[i])
+
