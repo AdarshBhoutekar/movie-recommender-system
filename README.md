@@ -46,7 +46,7 @@ https://movie-recommender-system-flulzcthmmyscqxk3zzy36.streamlit.app/
 
 ### Clone the repository
 ```bash
-git clone https://github.com/<your-username>/movie-recommender-system.git
+git clone https://github.com/AdarshBhoutekar/movie-recommender-system.git
 cd movie-recommender-system
 
 Adarsh  
